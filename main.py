@@ -26,6 +26,10 @@ def gen_passwd():
 
     for i in range(number):
         passwords = ""
-        for c in range(length):
+        for j in range(length):
             passwords += random.choice(chars)
             print(i, "passwd", passwords)
+
+
+# case - match  //choice
+# ("What do you want to do?: ")
