@@ -12,7 +12,7 @@ pswd = []
 def create_file():
     with open("passwd.txt", "w") as file:
         # print("Created file: passwd.txt")
-        return file
+        file.close
 
 
 def append_to_file(pswd):
