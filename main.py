@@ -7,6 +7,8 @@ print("-------------------")
 print("Password Generator|")
 print("-------------------")
 
+pswd = []
+
 
 def create_file():
     f = open("passwd.txt", "w")
@@ -22,23 +24,23 @@ def create_file():
     # main()
 
 
-def append_to_file():
+def append_to_file(pswd):
     f = open("passwd.txt", "a")
     print("Now the file has more content!")
-    f.write("asdsadas")
+    s = "".join(pswd)
+    print(pswd)
+    f.write(s)
     f.close()
     main()
 
 
-pswd = []
-
-
 def gen_passwd(pswd):
+
     chars = string.ascii_letters + string.digits + string.punctuation
     number = int(input("Amount of password to generate: "))
     length = int(input("Your password length: "))
     print("\n\x1b[5;30;41m" + "Here are your password(s):" + "\x1b[0m")
-    # pswd = []
+    pswd = []
     for i in range(number):
         passwords = ""
         for j in range(length):
@@ -52,7 +54,7 @@ def gen_passwd(pswd):
         case "yes":
             if os.path.isfile("passwd.txt") == True:
                 print("OK")
-                append_to_file()
+                append_to_file(pswd)
                 # f = open("passwd.txt", "a")
                 # print("Now the file has more content!")
                 # f.write("pswd.append(passwords())")
@@ -61,7 +63,7 @@ def gen_passwd(pswd):
             else:
                 print("nie ma ale utowrzse teraz")
                 create_file()
-                append_to_file()
+                append_to_file(pswd)
         case "no":
             print("Back to main")
             main()
@@ -73,7 +75,7 @@ def main():
     )
     match choice:
         case "1":
-            gen_passwd()
+            gen_passwd(pswd)
         case "q":
             print("\x1b[5;30;42m" + "QUIT" + "\x1b[0m")
             quit()
