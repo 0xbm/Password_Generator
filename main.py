@@ -10,19 +10,14 @@ pswd = []
 
 
 def create_file():
-    with open("passwd.txt", "w") as file:
-        # print("Created file: passwd.txt")
+    with open("passwd.csv", "w") as file:
         file.close
 
 
 def append_to_file(pswd):
-    with open("passwd.txt", "a") as file:
+    with open("passwd.csv", "a") as file:
         for ps in pswd:
             file.write(str(ps) + "\n")
-    # f = open("passwd.txt", "a")
-    # s = "\n".join(str(x) for x in pswd)
-    # f.write(s)
-    # f.close()
     main()
 
 
@@ -41,11 +36,10 @@ def gen_passwd(pswd):
     choice = input("Append to file? yes/no: ")
     match choice:
         case "yes":
-            if os.path.isfile("passwd.txt") == True:
+            if os.path.isfile("passwd.csv") == True:
                 append_to_file(pswd)
                 main()
             else:
-                print("nie ma ale utowrzse teraz")
                 create_file()
                 append_to_file(pswd)
         case "no":
